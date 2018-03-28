@@ -5,7 +5,7 @@ require_relative 'base'
 
 module RatingsAggregator
   class Api
-    API_URL = "http://www.omdbapi.com/"
+    API_URL = "http://www.omdbapi.com/?apikey=4fa3c3a3&"
 
     attr_accessor :response
     def call(params)

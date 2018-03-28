@@ -8,7 +8,7 @@ module RatingsAggregator
     attr_accessor :api
 
     def search(search_title)
-      response = api.call({s: search_title})
+      response = api.call(s: search_title)
       puts response
       # if response[:data]["Response"] == "False"
       #   { movies: {}, status: 404 }
