@@ -9,21 +9,15 @@ $ [sudo] install ./ratings_aggregator-[VERSION].gem
 
 ## Usage
 
-RatingsAggregator::Base.new.search("[TITLE]")
+[You must get your own OMDB key to use this gem](http://www.omdbapi.com/)
 
-returns the following object:
+### Create a new aggregator object
+`aggregator = RatingsAggregator::Base.new`
 
-{movie: {MOVIE_RESULTS}, status: RESPONSE_CODE}
+### Give it a valid OMDB key 
+`aggregator.set_key('YOUR_KEY')`
 
-where MOVIE_RESULTS is a movie object, and RESPONSE_CODE is the response code of the API call to OMDB.
+### Get the aggregated score of a rating
+`aggregator.search('MOVIE_TITLE')`
 
-Example usage:
- > movie = RatingsAggregator::Base.new.search("Monster")
-
- > movie[:movie]["Ratings"]
-
- returns ratings for the movie returned as an array of ratings objects
-
- Sample output for movie[:movie]["Ratings"]:
- 
- [{"Source"=>"Internet Movie Database", "Value"=>"7.3/10"}, {"Source"=>"Rotten Tomatoes", "Value"=>"81%"}, {"Source"=>"Metacritic", "Value"=>"74/100"}]
+Note that if your search query returns multiple results, you will only get the data of the first movie in the query.
