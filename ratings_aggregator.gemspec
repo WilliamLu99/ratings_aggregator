@@ -20,4 +20,7 @@ Gem::Specification.new do |s|
   # Productions gems
   s.add_dependency "json"
   s.add_dependency "rest-client"
+
+  s.add_development_dependency "bundler", "~> 1.16"
+  s.add_development_dependency "rake", "~> 10.0"
 end

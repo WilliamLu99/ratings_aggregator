@@ -2,10 +2,9 @@
 A ruby gem that aggregates the rating of a movie via OMDB
 
 ## Installation
+$ [sudo] gem install bundle
 
-$ gem build ratings_aggregator.gemspec
-
-$ [sudo] install ./ratings_aggregator-[VERSION].gem
+$ bundle install
 
 ## Usage
 
@@ -25,5 +24,5 @@ Example usage:
  returns ratings for the movie returned as an array of ratings objects
 
  Sample output for movie[:movie]["Ratings"]:
- 
+
  [{"Source"=>"Internet Movie Database", "Value"=>"7.3/10"}, {"Source"=>"Rotten Tomatoes", "Value"=>"81%"}, {"Source"=>"Metacritic", "Value"=>"74/100"}]
