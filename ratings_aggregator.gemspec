@@ -16,4 +16,8 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- test/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
+
+  # Productions gems
+  s.add_dependency "json"
+  s.add_dependency "rest-client"
 end

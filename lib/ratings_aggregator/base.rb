@@ -1,4 +1,23 @@
 require 'net/http'
 require 'json'
+require_relative 'api'
+
 module RatingsAggregator
+  # API_URL = "http://www.omdbapi.com/?apikey=[yourkey]&"
+  class Base
+    attr_accessor :api
+
+    def search(search_title)
+      response = api.call({s: search_title})
+      puts response
+      # if res[:data]["Response"] == "False"
+      #   { movies: {}, status: 404 }
+      # else
+      #   { movies: parse_movies(res[:data]), status: res[:code] }
+      # end
+    end
+    def api
+      @api ||= RatingsAggregator::Api.new
+    end
+  end
 end
