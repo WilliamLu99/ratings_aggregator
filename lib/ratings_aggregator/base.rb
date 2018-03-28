@@ -10,10 +10,10 @@ module RatingsAggregator
     def search(search_title)
       response = api.call({s: search_title})
       puts response
-      # if res[:data]["Response"] == "False"
+      # if response[:data]["Response"] == "False"
       #   { movies: {}, status: 404 }
       # else
-      #   { movies: parse_movies(res[:data]), status: res[:code] }
+      #   { movies: parse_movies(response[:data]), status: response[:code] }
       # end
     end
     def api
