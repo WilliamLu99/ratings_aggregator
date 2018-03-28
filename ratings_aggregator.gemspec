@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "ratings_aggregator/version"
+require "ratings_aggregator"
 
 Gem::Specification.new do |s|
   s.name        = "ratings_aggregator"
