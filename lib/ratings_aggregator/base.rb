@@ -15,7 +15,7 @@ module RatingsAggregator
       else
         #grabs movies in results array
         puts response[:data]
-        { movies: (response[:data]), status: response[:code] }
+        { movie: (response[:data]), status: response[:code] }
       end
     end
     def api
