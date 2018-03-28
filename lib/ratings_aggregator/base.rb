@@ -3,23 +3,33 @@ require 'json'
 require_relative 'api'
 
 module RatingsAggregator
-  # API_URL = "http://www.omdbapi.com/?apikey=[yourkey]&"
   class Base
-    attr_accessor :api
-
     def search(search_title)
-      response = api.call(t: search_title)
+      response = api.call(t: search_title, apikey: @key)
       # puts response
       if response[:data]["Response"] == "False"
-        { movies: {}, status: 404 }
+        nil
       else
-        #grabs movies in results array
-        puts response[:data]
-        { movie: (response[:data]), status: response[:code] }
+        # pulls out the strings that represent the rating scores
+        rating_scores = response[:data]["Ratings"].map {|x| x["Value"]}
+
+        sum = 0.0
+        rating_scores.each do |score|
+          to_add = score.to_f
+          if /.+\/10$/.match score
+            to_add *= 10
+          end
+          sum += to_add
+        end
+        aggregate_score = (sum/rating_scores.length).round
       end
     end
     def api
       @api ||= RatingsAggregator::Api.new
+    end
+
+    def set_key(key)
+      @key = key
     end
   end
 end
