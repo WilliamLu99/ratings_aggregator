@@ -9,6 +9,9 @@ $ [sudo] install ./ratings_aggregator-[VERSION].gem
 
 ## Usage
 
+### Require the gem in your file
+`require ratings_aggregator`
+
 [You must get your own OMDB key to use this gem](http://www.omdbapi.com/)
 
 ### Create a new aggregator object
