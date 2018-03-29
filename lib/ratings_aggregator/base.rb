@@ -5,7 +5,12 @@ require_relative 'api'
 module RatingsAggregator
   class Base
     def search(search_title)
-      response = api.call(t: search_title, apikey: @key)
+      begin
+        response = api.call(t: search_title, apikey: @key)
+      rescue Exception => e
+        puts "Please set the API key"
+        return
+      end
       # puts response
       if response[:data]["Response"] == "False"
         nil

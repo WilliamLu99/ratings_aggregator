@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    ratings_aggregator (0.0.1)
+    ratings_aggregator (0.0.2)
       json
       rest-client
 
