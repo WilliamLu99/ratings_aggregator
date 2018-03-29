@@ -7,7 +7,7 @@ module RatingsAggregator
     def search(search_title)
       begin
         response = api.call(t: search_title, apikey: @key)
-      rescue Exception => e
+      rescue => e
         puts "Please set the API key"
         return
       end
