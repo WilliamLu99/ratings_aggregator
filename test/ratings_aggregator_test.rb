@@ -3,7 +3,7 @@ require "ratings_aggregator"
 
 class RatingsAggregatorTest < Minitest::Test
   # Your own key is needed to run these tests
-  OMDB_KEY = 'c9005507'
+  OMDB_KEY = ''
 
   def setup
     @aggregator = RatingsAggregator::Base.new
